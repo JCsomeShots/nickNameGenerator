@@ -1,0 +1,42 @@
+'use strict'
+
+const adjetivos = [
+    "Loco", "Divertido", "Pintoresco", "Travieso", "Peludo",  "Gracioso", "Ridículo", "Descarado", "Bromista",
+    "Brillante", "Astuto", "Tonto", "Desastroso", "Curioso", "Hilarante", "Majestuoso", "Chiflado", "Ruidoso", "Zumbado",
+    "Chistoso", "Encantador", "Descarado", "Rebelde", "Cómico", "Ocurrente", "Aventurero", "Sorprendente", "Energético", "Bobalicón",
+    "Saltimbanqui", "Feliz", "Atrevido", "Colorido", "Intrépido", "Alegre", "Extravagante", "Explosivo", "Juguetón", "Entusiasta",
+    "Inventivo", "Ecléctico", "Vibrante", "Chillón", "Pícaro", "Simpático", "Chismoso", "Amistoso", "Inquieto", "Reluciente",
+    "Afortunado", "Animado", "Cachondo", "Despreocupado", "Eficiente", "Espléndido", "Exuberante", "Fantástico", "Feroz", "Furioso",
+    "Generoso", "Gigante", "Glorioso", "Goloso", "Guapo", "Indomable", "Ingenioso", "Intrigante", "Jocoso", "Lujoso",
+    "Maravilloso", "Misterioso", "Motivado", "Orgulloso", "Osado", "Optimista", "Pacífico", "Poderoso", "Radiante", "Resplandeciente",
+    "Respetuoso", "Sarcástico", "Sofisticado", "Sorprendido", "Súper", "Tenaz", "Tierno", "Travieso", "Tronchante", "Valiente",
+    "Veloz", "Vigoroso", "Vivaz", "Zalamera", "Zumbón", "Zapateador", "Audaz", "Atónito", "Bizarro", "Bullicioso",
+    "Carismático", "Cautivador", "Chulo", "Chungo", "Dicharachero", "Efervescente", "Elegante", "Elocuente", "Empático", "Enérgico",
+    "Espectacular", "Excéntrico", "Fabuloso", "Feo", "Fiero", "Fino", "Flemático", "Freak", "Friki", "Gamberro",
+    "Glamoroso", "Grotesco", "Hábil", "Hambriento", "Hercúleo", "Hipnótico", "Histérico", "Horrendo", "Horroroso", "Iluminado",
+    "Imparable", "Impresionante",  "Indefinible", "Infame", "Inigualable", "Insoportable", "Irresistible", "Juguetón", "Legendario",
+    "Lejano", "Leal", "Malévolo", "Maníaco", "Maravilloso", "Melancólico", "Místico", "Notable", "Nefasto",
+    "Ofensivo", "Patético", "Peculiar", "Persuasivo", "Pintoresco", "Poderoso", "Positivo", "Prepotente", "Presuntuoso",
+    "Pretencioso", "Primoroso", "Prodigioso", "Pudoroso", "Radical", "Raro", "Resuelto", "Robusto", "Romántico", "Rutilante",
+    "Sagaz", "Salvaje", "Seductor", "Sereno", "Sibarita", "Soberbio", "Sorprendente", "Sospechoso", "Suave", "Sutil",
+    "Tajante", "Temerario", "Tenaz", "Tímido", "Titánico", "Tranquilo", "Trepador", "Triunfador", "Único", "Valeroso",
+    "Versátil", "Vibrante", "Victorioso", "Violento", "Vividor", "Vulgar", "Mágico", "Deseable", "Relajante", "Cálido",
+    "Esplendoroso", "Radiante", "Brillante", "Lustroso", "Inmaculado", "Resplandeciente", "Vistoso", "Cautivador",  "Sorprendente",
+    "Estimulante", "Inspirador", "Fascinante", "Magnético", "Irresistible", "Seductor", "Atractivo", "Apasionante", "Encantador", "Hipnotizante",
+    "Deslumbrante", "Impresionante", "Imponente", "Impactante", "Arrollador", "Sublime", "Majestuoso", "Impecable", "Exquisito", "Elegante",
+    "Refinado", "Distinguido", "Afectuoso", "Amable", "Cariñoso", "Tierno", "Simpático", "Agradable", "Encantador", "Familiar",
+    "Hospitalario", "Bondadoso", "Generoso", "Compasivo", "Confiable", "Leal", "Fiel", "Noble", "Solidario", "Altruista",
+    "Sincero", "Honesto", "Franco", "Justo", "Recto", "Íntegro", "Valiente", "Audaz", "Intrépido", "Temerario",
+    "Osado", "Decidido", "Resuelto", "Determinado", "Persistente", "Tenaz", "Perseverante", "Constante", "Diligente", "Aplicado",
+    "Trabajador", "Esforzado", "Entusiasta", "Apasionado", "Dinámico", "Activo", "Vigoroso", "Enérgico", "Vital", "LlenoDeVida",
+    "Alegre", "Feliz", "Contento", "Risueño", "Optimista", "Positivo", "Esperanzado", "Motivado", "Inspirado", "Animado",
+    "Vivaz", "Entusiasmado", "Eufórico", "Exultante", "Jubiloso", "Eufórico", "Exultante", "Satisfecho", "Pleno",
+    "Exitoso", "Triunfante", "Ganador", "Campeón", "Vencedor", "Invencible", "Inquebrantable", "Inconmensurable", "Imperturbable", "Indestructible",
+    "Inmortal", "Inalterable", "Inmutable", "Impasible", "Impertérrito", "Imperturbable", "Implacable", "Imparable", "Invulnerable", "Indestructible",
+    "Indomable", "Indómito", "Indefinible", "Inexorable", "Inmutable", "Inagotable", "Inquebrantable", "Incomparable", "Incalculable", "Inestimable",
+    "Inmenso", "Inconmensurable", "Infinito", "Inexplicable", "Ilimitado", "Incalculable", "Inestimable", "Insuperable", "Inconmensurable", 
+    "Impresionante", "Fabuloso", "Fantástico", "Extraordinario", "Maravilloso", "Espléndido", "Magnífico", "Espectacular", "Soberbio", "Sublime",
+    "Estupendo",   "Proverbial",  "Sorpresivo", "Genial",  "Asombroso", "Fenomenal", "Formidable", "Increíble"
+]   
+
+const mixedWord = ["Emocionante"]
